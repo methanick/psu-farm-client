@@ -1,0 +1,79 @@
+<div>
+  <div class="grid">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="bg">
+        <div class="p-text-left">
+          <h2>เพิ่มฟาร์ม</h2>
+        </div>
+        <form [formGroup]="farmForm" (ngSubmit)="onSubmit(farmForm)">
+          <div class="grid">
+            <div class="col-6">
+              <div class="label">
+                ชื่อฟาร์ม *
+              </div>
+              <input class="full-width" type="text" pInputText formControlName="farmName">
+            </div>
+            <div class="col-6">
+              <div class="label">
+                ชื่อ-นามสกุล (เจ้าของฟาร์ม)
+              </div>
+              <input class="full-width" type="text" pInputText formControlName="ownerName">
+            </div>
+            <div class="col-6">
+              <div class="label">
+                จำนวนพื้นที่ (ไร่)
+              </div>
+              <!-- <p-inputNumber class="full-width"  formControlName="area"></p-inputNumber> -->
+              <input type="number" class="full-width" pInputText formControlName="area" />
+            </div>
+            <div class="col-6">
+              <div class="label">
+                จำนวนวัว (ตัว)
+              </div>
+              <div class="full-width">
+                <input type="number" class="full-width" pInputText formControlName="numberOfCow" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="label">
+                คำอธิบายเพิ่มเติม
+              </div>
+              <textarea pInputTextarea class="full-width" [rows]="5" [cols]="30"
+                formControlName="description"></textarea>
+            </div>
+            <div class="col-6">
+              <div class="label">
+                ละติจูด
+              </div>
+              <input class="full-width" type="text" pInputText formControlName="lat">
+            </div>
+            <div class="col-6">
+              <div class="label">
+                ลองติจูด
+              </div>
+              <input class="full-width" type="text" pInputText formControlName="lng">
+            </div>
+            <!-- <div class="col-12">
+              <p-gmap [options]="options" [style]="{'width':'100%','height':'320px'}" ></p-gmap>
+            </div> -->
+            <div class="col-12">
+              <agm-map [latitude]="farmForm.get('lat').value" [longitude]="farmForm.get('lng').value" [zoom]="2">
+                <agm-marker [latitude]="farmForm.get('lat').value" [longitude]="farmForm.get('lng').value" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)">
+                </agm-marker>
+              </agm-map>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+
+<!-- <agm-map [options]="options">
+  <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+</agm-map> -->
+
+
+

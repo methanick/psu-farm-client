@@ -1,0 +1,35 @@
+<div>
+  <div class="grid">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8">
+      <div style="display: flex;justify-content: center;min-height: 80vh;">
+        <div class="login" style="margin-top:2em;width:400px;height: 480px;">
+        <div style="display: flex;justify-content: center;">
+          <img src="../../../assets/img/cowlogo.png" width="150px">
+        </div>
+        <div>
+          <div class="label">
+            <p>USERNAME</p>
+          </div>
+          <input class="full-width" type="text" pInputText [(ngModel)]="username">
+        </div>
+        <div>
+          <div class="label">
+            <p>PASSWORD</p>
+          </div>
+          <input class="full-width" type="password" pInputText [(ngModel)]="password">
+        </div>
+        <div style="margin-top: 2em;">
+          <button pButton label="LOGIN" class="p-button-success" (click)="login()"></button>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <div class="col-2">
+
+    </div>
+  </div>
+</div>

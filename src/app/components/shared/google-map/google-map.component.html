@@ -1,0 +1,29 @@
+<div class="p-grid p-formgrid">
+  <div class="p-field p-col-12">
+    <p class="label">
+      <label for="fnearbyLocation">
+        {{ 'shared.location.label' }}
+      </label>
+    </p>
+    <input
+    *ngIf="hasAutoComplete"
+      class="fullwidth"
+      pInputText
+      type="text"
+      (keydown.enter)="$event.preventDefault()"
+      #search
+    />
+    <agm-map
+      [latitude]="coordinate.lat"
+      [longitude]="coordinate.lng"
+      [zoom]="16"
+    >
+      <agm-marker
+        [latitude]="coordinate.lat"
+        [longitude]="coordinate.lng"
+        [markerDraggable]="true"
+        (dragEnd)="markerDragEnd($event)"
+      ></agm-marker>
+    </agm-map>
+  </div>
+</div>

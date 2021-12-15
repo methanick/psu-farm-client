@@ -1,0 +1,11 @@
+.login{
+  padding: 2em;
+  border-radius: 15px;
+  border: 2px solid #C1C1C1 ;
+  background-color: #F9F9F9;
+  box-shadow: 0px 0px 15px #C1C1C1;
+}
+
+:host::ng-deep .p-button{
+  width: 100%;
+}

@@ -1,0 +1,48 @@
+<div style="background-color: #689F38;width: 100%;">
+  <div class="grid" style="padding:0em 1em ;">
+    <div class="col-3">
+      <div style="display: flex;align-items: center;justify-content: flex-start;">
+        <div style="margin-right: 1em;display: flex;align-items: center;justify-content: flex-start;">
+          <img src="assets/img/cowlogo.png" height="40" class="p-mr-2">
+        </div>
+        <div >
+          <h2 style="color: white;">PSU FARM</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-5" style="display: flex;align-items: center;justify-content: flex-start;">
+      <button pButton style="color: white;" label="หน้าแรก" icon="pi pi-home" [routerLink]="'/home'"
+        class="p-button-success p-button-text"></button>
+      <button pButton style="color: white;" label="ค้นหาฟาร์ม" icon="pi pi-search" [routerLink]="'/search'"
+        class="p-button-success p-button-text"></button>
+    </div>
+    <div class="col-4" style="display: flex;align-items: center;justify-content: flex-end;">
+      <div>
+        <button pButton label="ADMIN" icon="pi pi-user" class="p-button-success" [routerLink]="'/login'"></button>
+      </div>
+      <div *ngIf="false">
+        <button pButton label="Logout" icon="pi pi-power-off" class="p-button-danger"></button>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div style="background-color: #689F38;width: 100%; margin-top: 1em;padding: 1em;">
+  <div class="grid">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8" style="align-items: center;">
+      <div style="display: flex;justify-content: center;">
+        <img src="../assets/img/vet-EN-925x135.png" height="30px" class="p-mr-2">
+      </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+  </div>
+</div>

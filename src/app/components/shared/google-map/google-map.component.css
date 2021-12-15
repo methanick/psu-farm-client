@@ -1,0 +1,11 @@
+agm-map {
+  height: 300px;
+}
+.label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+span.label {
+  margin-right: 0.5em;
+}

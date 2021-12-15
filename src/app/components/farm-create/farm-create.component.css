@@ -1,0 +1,36 @@
+.bg{
+  width: 100%;
+  margin-top: 1em;
+  padding:1em;
+  background-color: #F9F9F9;
+}
+
+.label{
+  margin: 1em 0;
+}
+
+.full-width{
+  width: 100%;
+}
+
+:host::ng-deep .ui-inputtext {
+  width: 10px;
+}
+
+:host::ng-deep .ui-inputnumber-input {
+  text-align: end;
+  width: 100%;
+}
+
+agm-map {
+  height: 300px;
+}
+.label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+span.label {
+  margin-right: 0.5em;
+}
+
