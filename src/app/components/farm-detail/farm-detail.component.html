@@ -1,1 +1,44 @@
-<p>farm-detail works!</p>
+<div class="p-grid">
+  <div class="p-col-12 p-md-1 p-lg-2"></div>
+  <div class="p-col-12 p-md-10 p-lg-8">
+    <div style="width: 100%;margin-top: 1em;padding:1em;background-color: #F9F9F9;">
+      <div class="p-card" style="width: 100%;margin-top: 1em;padding:1em;" >
+        <div class="p-grid">
+          <div>
+            <div class="p-col-12">
+              <img src="../../../assets/img/bg.jpg" width="100%" class="p-mr-2">
+            </div>
+          </div>
+          <div class="p-col-12">
+            <h2 style="margin:0; color: #689F38;">{{farm.farmName}}</h2>
+          </div>
+          <div class="p-col-12">
+            {{farm.description}}
+          </div>
+          <div class="p-col-12">
+            <h2 style="margin:0; color: #689F38;">ตำแหน่งที่ตั้ง</h2>
+          </div>
+          <div class="p-col-12">
+            {{farm.address}}
+          </div>
+          <div class="p-col-12">
+            <h2 style="margin:0; color: #689F38;">เกี่ยวกับฟาร์ม</h2>
+          </div>
+          <div class="p-col-12">
+            <span>เจ้าของฟาร์ม : </span> {{farm.ownerName}}
+          </div>
+          <div class="p-col-12">
+            <span>ขนาดพื้นที่ : </span> {{farm.area}} ไร่
+          </div>
+          <div class="p-col-12">
+            <span>จำนวนวัว : </span> {{farm.NumberOfCow}} ตัว
+          </div>
+          <div class="p-col-12">
+            <span>เบอร์โทร : </span> {{farm.phone}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12 p-md-1 p-lg-2"></div>
+</div>

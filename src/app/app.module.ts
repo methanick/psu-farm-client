@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {GMapModule} from 'primeng/gmap';
+import {PaginatorModule} from 'primeng/paginator';
 
 
 
@@ -51,6 +52,7 @@ import {GMapModule} from 'primeng/gmap';
     InputTextareaModule,
     HttpClientModule,
     GMapModule,
+    PaginatorModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDSxQItpddB64QqM3i47x-C3nOJ9OUvlAk',
       libraries: ['places'],

@@ -1,6 +1,6 @@
 <div style="background-color: #689F38;width: 100%;">
-  <div class="grid" style="padding:0em 1em ;">
-    <div class="col-3">
+  <div class="p-grid" style="padding:0em 1em ;">
+    <div class="p-col-10 p-md-4 p-lg-3 p-sm-4">
       <div style="display: flex;align-items: center;justify-content: flex-start;">
         <div style="margin-right: 1em;display: flex;align-items: center;justify-content: flex-start;">
           <img src="assets/img/cowlogo.png" height="40" class="p-mr-2">
@@ -10,21 +10,43 @@
         </div>
       </div>
     </div>
-    <div class="col-5" style="display: flex;align-items: center;justify-content: flex-start;">
-      <button pButton style="color: white;" label="หน้าแรก" icon="pi pi-home" [routerLink]="'/home'"
+    <div *ngIf="showBarIcon" class="p-col-2">
+      <div style="display: flex;align-items: center;justify-content: flex-end;">
+        <div style="display: flex;align-items: center;justify-content: flex-end;padding-top: 1em;" (click)="showMenuBar()">
+          <i *ngIf="!showMenu" class="pi pi-bars" style="color: white; font-size: 2rem"></i>
+          <i *ngIf="showMenu" class="pi pi-times" style="color: white; font-size: 2rem"></i>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!showBarIcon" class="p-col-12 p-md-6 p-lg-5 p-sm-6" style="display: flex;align-items: center;justify-content: flex-start;">
+      <button *ngIf="!isLogin" pButton style="color: white;" label="หน้าแรก" icon="pi pi-home" [routerLink]="'/home'"
         class="p-button-success p-button-text"></button>
-      <button pButton style="color: white;" label="ค้นหาฟาร์ม" icon="pi pi-search" [routerLink]="'/search'"
+      <button *ngIf="!isLogin" pButton style="color: white;" label="ค้นหาฟาร์ม" icon="pi pi-search" [routerLink]="'/search'"
+        class="p-button-success p-button-text"></button>
+        <button *ngIf="isLogin" pButton style="color: white;" label="รายการฟาร์ม" icon="pi pi-list" [routerLink]="'/farm/list'"
+        class="p-button-success p-button-text"></button>
+      <button *ngIf="isLogin" pButton style="color: white;" label="สร้างฟาร์ม" icon="pi pi-plus" [routerLink]="'/farm/create'"
         class="p-button-success p-button-text"></button>
     </div>
-    <div class="col-4" style="display: flex;align-items: center;justify-content: flex-end;">
-      <div>
+    <div *ngIf="!showBarIcon" class="p-col-12 p-md-2 p-lg-4 p-sm-2" style="display: flex;align-items: center;justify-content: flex-end;">
+      <div *ngIf="!isLogin">
         <button pButton label="ADMIN" icon="pi pi-user" class="p-button-success" [routerLink]="'/login'"></button>
       </div>
-      <div *ngIf="false">
-        <button pButton label="Logout" icon="pi pi-power-off" class="p-button-danger"></button>
+      <div *ngIf="isLogin">
+        <button pButton label="Logout" icon="pi pi-power-off" class="p-button-danger" (click)='logOut()' [routerLink]="'/home'"></button>
       </div>
-
-
+    </div>
+    <div class="p-col-12" *ngIf="showMenu">
+      <button *ngIf="!isLogin" pButton style="color: white;" label="หน้าแรก" icon="pi pi-home" [routerLink]="'/home'"
+        class="p-button-success p-button-text"></button>
+      <button *ngIf="!isLogin" pButton style="color: white;" label="ค้นหาฟาร์ม" icon="pi pi-search" [routerLink]="'/search'"
+        class="p-button-success p-button-text"></button>
+      <button *ngIf="isLogin" pButton style="color: white;" label="รายการฟาร์ม" icon="pi pi-list" [routerLink]="'/farm/list'"
+        class="p-button-success p-button-text"></button>
+      <button *ngIf="isLogin" pButton style="color: white;" label="สร้างฟาร์ม" icon="pi pi-plus" [routerLink]="'/farm/create'"
+        class="p-button-success p-button-text"></button>
+        <button *ngIf="!isLogin" pButton label="ADMIN" icon="pi pi-user" class="p-button-success" [routerLink]="'/login'"></button>
+        <button *ngIf="isLogin" pButton label="Logout" icon="pi pi-power-off" class="p-button-danger" (click)='logOut()' [routerLink]="'/home'"></button>
     </div>
   </div>
 </div>
@@ -32,16 +54,16 @@
 <router-outlet></router-outlet>
 
 <div style="background-color: #689F38;width: 100%; margin-top: 1em;padding: 1em;">
-  <div class="grid">
-    <div class="col-2">
+  <div class="p-grid">
+    <div class="p-col-2">
 
     </div>
-    <div class="col-8" style="align-items: center;">
+    <div class="p-col-8" style="align-items: center;">
       <div style="display: flex;justify-content: center;">
         <img src="../assets/img/vet-EN-925x135.png" height="30px" class="p-mr-2">
       </div>
     </div>
-    <div class="col-2">
+    <div class="p-col-2">
 
     </div>
   </div>

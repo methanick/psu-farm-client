@@ -4,25 +4,25 @@
   </div>
 
 </div>
-<div class="grid">
-  <div class="col-2"></div>
+<div class="p-grid">
+  <div class="p-col-12 p-md-1 p-lg-2"></div>
 
-  <div class="col-8">
+  <div class="p-col-12 p-md-10 p-lg-8">
     <!-- การ์ด3ใบ -->
   <div style="width: 100%;margin-top: 1em;padding:1em;background-color: #F9F9F9;">
-    <div class="grid">
-      <div class="col-4">
+    <div class="p-grid">
+      <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
         <div class="p-card">
-          <div class="grid">
-            <div class="col-4" style="padding: 1em;">
+          <div class="p-grid">
+            <div class="p-col-4" style="padding: 1em;">
               <img src="../../../assets/img/barn.png" width="100%" class="p-mr-2">
             </div>
-            <div class="col-8">
+            <div class="p-col-8">
               <div >
                 <h3 style="margin:0.5em 0 0 0;text-align: center;">จำนวนฟาร์ม</h3>
               </div>
               <div>
-                <h2 style="color:#689F38;margin:0;text-align: center;;">120</h2>
+                <h2 style="color:#689F38;margin:0;text-align: center;;">{{totalFarm}}</h2>
               </div>
               <div >
                 <h3 style="margin:0;text-align: center;">ฟาร์ม</h3>
@@ -31,13 +31,13 @@
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
         <div class="p-card">
-          <div class="grid">
-            <div class="col-4" style="padding: 1em;">
+          <div class="p-grid">
+            <div class="p-col-4" style="padding: 1em;">
               <img src="../../../assets/img/cow1.png" width="100%" class="p-mr-2">
             </div>
-            <div class="col-8">
+            <div class="p-col-8">
               <div >
                 <h3 style="margin:0.5em 0 0 0;text-align: center;">จำนวนวัว</h3>
               </div>
@@ -51,13 +51,13 @@
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
         <div class="p-card">
-          <div class="grid">
-            <div class="col-4" style="padding: 1em;">
+          <div class="p-grid">
+            <div class="p-col-4" style="padding: 1em;">
               <img src="../../../assets/img/woman.png" width="100%" class="p-mr-2">
             </div>
-            <div class="col-8">
+            <div class="p-col-8">
               <div >
                 <h3 style="margin:0.5em 0 0 0;text-align: center;">ผู้เข้าชม</h3>
               </div>
@@ -76,22 +76,22 @@
 
   <!-- ฟาร์มล่าสุด -->
   <div class="p-card" style="width: 100%;margin-top: 1em;padding:1em;background-color: #F9F9F9;">
-    <div class="grid">
-      <div class="col-6">
+    <div class="p-grid">
+      <div class="p-col-6">
         <h2 style="margin:0">ฟาร์มล่าสุด</h2>
       </div>
-      <div class="col-6" style="text-align: end;">
+      <div class="p-col-6" style="text-align: end;">
         <button pButton label="ฟาร์มทั้งหมด" class="p-button-success" [routerLink]="'/search'"></button>
       </div>
     </div>
     <div *ngIf="farmList">
-      <div *ngFor="let farm of farmList">
-        <div class="p-card" style="margin-top: 1em;padding: 1em;">
-            <div class="grid">
-              <div class="col-4">
-                <img src="../../../assets/img/bg.jpg" height="150px" class="p-mr-2">
+      <div *ngFor="let farm of farmForShow">
+        <div class="p-card" style="margin-top: 1em;padding: 1em;" (click)="goToDetail(farm)">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+                <img src="../../../assets/img/bg.jpg" width="100%" class="p-mr-2">
               </div>
-              <div class="col-8">
+              <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
                 <div>
                   <h3>{{farm.farmName}}</h3>
                 </div>
@@ -113,7 +113,7 @@
 
   </div>
 
-  <div class="col-2"></div>
+  <div class="p-col-12 p-md-1 p-lg-2"></div>
 
 </div>
 

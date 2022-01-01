@@ -1,5 +1,90 @@
-<div style="padding: 1em;">
-<div>
-  <p>หน้าค้นหา อยู่ระหว่างการพัฒนา</p>
-</div>
-</div>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-1 p-lg-2"></div>
+    <div class="p-col-12 p-md-10 p-lg-8">
+      <div style="width: 100%;margin-top: 1em;padding:1em;background-color: #F9F9F9;">
+        <div class="p-card" style="width: 100%;margin-top: 1em;padding:1em;" >
+          <div class="p-grid">
+            <div class="p-col-12">
+              <h2 style="margin:0">ค้นหาฟาร์ม</h2>
+              <hr class="myhr"/>
+            </div>
+            <div class="p-col-12">
+              <form [formGroup]="searchForm" (ngSubmit)="searchFarm()">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-6 p-lg-6">
+                    <div class="label">
+                      ชื่อฟาร์ม
+                    </div>
+                    <input class="full-width" type="text" pInputText formControlName="farmName">
+                  </div>
+                  <div class="p-col-12 p-md-6 p-lg-6">
+                    <div class="label">
+                      จังหวัด
+                    </div>
+                    <input class="full-width" type="text" pInputText formControlName="address">
+                  </div>
+                  <div class="p-col-12 p-md-6 p-lg-6">
+                    <div class="label">
+                      พื้นที่ (ไร่)
+                    </div>
+                    <!-- <p-inputNumber class="full-width"  formControlName="area"></p-inputNumber> -->
+                    <input type="number" class="full-width" pInputText formControlName="area" />
+                  </div>
+                  <div class="p-col-12 p-md-6 p-lg-6">
+                    <div class="label">
+                      จำนวนวัว (ตัว)
+                    </div>
+                    <div class="full-width">
+                      <input type="number" class="full-width" pInputText formControlName="numberOfCow" />
+                    </div>
+                  </div>
+                  <div class="p-col-12" style="text-align: end;">
+                    <button pButton label="Clear" icon="pi pi-trash" class="p-button-danger" (click)="clearSearch()" style="margin-right:1em;"></button>
+                    <button pButton label="Search" icon="pi pi-search" type="submit" class="p-button-success"></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="p-card" style="width: 100%;margin-top: 1em;padding:1em;" >
+          <div class="p-grid">
+            <div class="p-col-12">
+              <h2 style="margin:0">ค้นพบ {{totalData}} ฟาร์ม</h2>
+              <hr class="myhr"/>
+            </div>
+            <div class="p-col-12">
+              <div *ngIf="farmList">
+                <div *ngFor="let farm of farmForShow">
+                  <div class="p-card" style="margin-top: 1em;padding: 1em;" (click)="goToDetail(farm)">
+                      <div class="p-grid">
+                        <div class="p-col-12">
+                          <div>
+                            <h3>{{farm.farmName}}</h3>
+                          </div>
+                          <div>
+                            <p>{{farm.description}}</p>
+                          </div>
+                          <div style="display: flex;align-items: center;">
+                            <i class="pi pi-map-marker" style="color:#D32F2F;margin-right: 10px;"></i>
+                            <p>{{farm.address}}</p>
+                          </div>
+                        </div>
+
+                      </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center;" class='p-col-12'>
+              <div>
+                <p-paginator [rows]="10" [totalRecords]="totalData" (onPageChange)="paginate($event)"></p-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-12 p-md-1 p-lg-2"></div>
+  </div>

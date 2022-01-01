@@ -1,13 +1,13 @@
 <div style="padding: 1em;min-height: 80vh;">
-  <div class="grid" style="margin-top: 3em;">
-    <div class="col-1">
+  <div class="p-grid" style="margin-top: 3em;">
+    <div class="p-col-1">
     </div>
-    <div class="col-10">
+    <div class="p-col-10">
       <div width="100%" style="margin-bottom: 1em;text-align: end;">
         <button pButton label="Create Farm" icon="pi pi-plus" class="p-button-success" [routerLink]="'/farm/create'"></button>
       </div>
 
-      <p-table [value]="farmList">
+      <p-table [value]="farmList" [paginator]="true" [rows]="10">
         <ng-template pTemplate="header">
           <tr>
             <th>ชื่อฟาร์ม</th>
@@ -26,11 +26,10 @@
             <td>
               <div style="display: flex;">
                 <div style="margin-right: 0.5em;">
-                  <button pButton style="color: white;" icon="pi pi-pencil" class="p-button-warning"
-                [routerLink]="'/farm/edit/1'"></button>
+                  <button pButton style="color: white;" icon="pi pi-pencil" class="p-button-warning" (click)="goToEdit(farm)"></button>
                 </div>
                 <div>
-                  <button pButton icon="pi pi-trash" class="p-button-danger"></button>
+                  <button pButton icon="pi pi-trash" class="p-button-danger" (click)="deleteFarm(farm)"></button>
                 </div>
               </div>
 
@@ -40,7 +39,7 @@
         </ng-template>
       </p-table>
     </div>
-    <div class="col-1">
+    <div class="p-col-1">
 
     </div>
   </div>

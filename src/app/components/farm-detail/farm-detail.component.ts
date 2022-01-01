@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-farm-detail',
@@ -6,10 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./farm-detail.component.css']
 })
 export class FarmDetailComponent implements OnInit {
+  id
+  farm
 
-  constructor() { }
+  constructor(private http: HttpClient,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.params
+    console.log(this.id._value.id)
+    if(this.id){
+      this.loadFarm()
+    }
+  }
+
+  loadFarm() {
+    this.http
+      .get('http://localhost:5500/api/farm/'+this.id._value.id)
+      .toPromise()
+      .then((res) => {
+        if (res) {
+          console.log(res);
+          this.farm = res;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 }

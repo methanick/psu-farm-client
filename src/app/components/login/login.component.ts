@@ -18,11 +18,22 @@ export class LoginComponent implements OnInit {
   }
 // Swal.fire('Good job!', 'You clicked the button!', 'error');
   login() {
-    console.log("loginnnnn")
-    console.log(this.username)
-    console.log(this.password)
-    if(this.username == "admin" && this.password == "admin@2021"){
-      this.router.navigate(['/farm/list'])
+    if(this.username && this.password){
+      let data = {
+        username:this.username,
+        password:this.password
+      }
+      this.http.post('http://localhost:5500/api/login',data).toPromise().then((res:any)=>{
+        console.log(res)
+        this.setSessionToken(res)
+      }).catch(err=>{
+        console.log(err)
+        Swal.fire(
+          'แจ้งเตือน',
+          err.error.error,
+          'error'
+        )
+      })
     }else{
       Swal.fire(
         'แจ้งเตือน',
@@ -30,5 +41,15 @@ export class LoginComponent implements OnInit {
         'error'
       )
     }
+
+
   }
+
+  setSessionToken(data){
+    sessionStorage.setItem("token",data.token)
+    sessionStorage.setItem("username",data.username)
+    this.router.navigate(['/farm/list'])
+  }
+
+
 }

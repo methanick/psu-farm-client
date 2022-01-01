@@ -1,4 +1,5 @@
 import { MapsAPILoader } from '@agm/core';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   ElementRef,
@@ -7,6 +8,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 interface Coordinate {
   lat: number;
@@ -23,13 +26,14 @@ export class FarmCreateComponent implements OnInit {
 
   options;
   overlays;
+  token = '122344445'
 
   lat: 36.890257;
   lng: 30.707417;
 
   coordinate: Coordinate = { lat: 13.75, lng: 100.51 };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private http: HttpClient,private router:Router) {}
 
   ngOnInit(): void {
     this.farmForm = this.fb.group({
@@ -51,7 +55,43 @@ export class FarmCreateComponent implements OnInit {
   // }
 
   onSubmit(farmForm) {
-    console.log(farmForm);
+    console.log(farmForm.value);
+    let data = farmForm.value
+
+    let token = 'Bearer'+' '+sessionStorage.getItem('token')
+    console.log(token)
+
+    if(data.farmName){
+      this.http.post('http://localhost:5500/api/farm/create',data,{
+        headers:{
+          authorization:token
+        }
+      }).toPromise().then(res=>{
+        console.log(res)
+        // Swal.fire(
+        //   'แจ้งเตือน',
+        //   'บันทึกข้อมูลสำเร็จ',
+        //   'success'
+        // )
+        this.router.navigate(['/farm/list'])
+
+
+      }).catch(err=>{
+        console.log(err)
+        Swal.fire(
+          'แจ้งเตือน',
+          err.error.error,
+          'error'
+        )
+      })
+
+    }else{
+      Swal.fire(
+        'แจ้งเตือน',
+        'กรุณากรอก ชื่อฟาร์ม',
+        'error'
+      )
+    }
   }
 
   markerDragEnd($event) {

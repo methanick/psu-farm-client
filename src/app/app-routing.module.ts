@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'search',component:SearchComponent},
   {path:'login',component:LoginComponent},
-  {path:'farm/detail',component:FarmDetailComponent},
+  {path:'farm/detail/:id',component:FarmDetailComponent},
   {path:'farm/edit/:id',component:FarmEditComponent},
   {path:'farm/create',component:FarmCreateComponent},
   {path:'farm/list',component:FarmListComponent},
