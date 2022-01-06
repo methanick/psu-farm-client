@@ -62,7 +62,7 @@ export class FarmCreateComponent implements OnInit {
     console.log(token)
 
     if(data.farmName){
-      this.http.post('http://psu-farm-server.herokuapp.com/api/farm/create',data,{
+      this.http.post('https://psu-farm-server.herokuapp.com/api/farm/create',data,{
         headers:{
           authorization:token
         }

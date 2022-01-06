@@ -91,7 +91,7 @@ export class SearchComponent implements OnInit {
 
   listFarm() {
     this.http
-      .get('http://psu-farm-server.herokuapp.com/api/farm')
+      .get('https://psu-farm-server.herokuapp.com/api/farm')
       .toPromise()
       .then((res) => {
         if (res) {

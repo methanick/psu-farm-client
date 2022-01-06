@@ -19,7 +19,7 @@ export class FarmListComponent implements OnInit {
 
   listFarm() {
     this.http
-      .get('http://psu-farm-server.herokuapp.com/api/farm')
+      .get('https://psu-farm-server.herokuapp.com/api/farm')
       .toPromise()
       .then((res:any) => {
         if (res) {
@@ -43,7 +43,7 @@ export class FarmListComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        let path = 'http://psu-farm-server.herokuapp.com/api/farm/' + data._id;
+        let path = 'https://psu-farm-server.herokuapp.com/api/farm/' + data._id;
         let token = 'Bearer' + ' ' + sessionStorage.getItem('token');
         console.log(token);
         this.http

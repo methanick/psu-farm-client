@@ -60,7 +60,7 @@ export class FarmEditComponent implements OnInit {
 
   loadFarm() {
     this.http
-      .get('http://psu-farm-server.herokuapp.com/api/farm/'+this.id._value.id)
+      .get('https://psu-farm-server.herokuapp.com/api/farm/'+this.id._value.id)
       .toPromise()
       .then((res) => {
         if (res) {
@@ -100,7 +100,7 @@ export class FarmEditComponent implements OnInit {
     console.log(token)
 
     if(data.farmName){
-      this.http.put('http://psu-farm-server.herokuapp.com/api/farm/'+this.id._value.id,data,{
+      this.http.put('https://psu-farm-server.herokuapp.com/api/farm/'+this.id._value.id,data,{
         headers:{
           authorization:token
         }
