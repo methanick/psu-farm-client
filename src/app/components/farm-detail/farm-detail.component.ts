@@ -23,7 +23,7 @@ export class FarmDetailComponent implements OnInit {
 
   loadFarm() {
     this.http
-      .get('http://localhost:5500/api/farm/'+this.id._value.id)
+      .get('http://psu-farm-server.herokuapp.com/api/farm/'+this.id._value.id)
       .toPromise()
       .then((res) => {
         if (res) {

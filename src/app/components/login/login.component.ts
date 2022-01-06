@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         username:this.username,
         password:this.password
       }
-      this.http.post('http://localhost:5500/api/login',data).toPromise().then((res:any)=>{
+      this.http.post('http://psu-farm-server.herokuapp.com/api/login',data).toPromise().then((res:any)=>{
         console.log(res)
         this.setSessionToken(res)
       }).catch(err=>{

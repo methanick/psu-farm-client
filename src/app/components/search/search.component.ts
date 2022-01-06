@@ -59,6 +59,15 @@ export class SearchComponent implements OnInit {
       dataFilter=[]
     }
 
+    if(this.searchForm.get('area').value){
+      for(let i=0;i<this.farmList.length;i++){
+        if(this.farmList[i].area >= this.searchForm.get('area').value){
+          dataFilter.push(this.farmList[i])        }
+      }
+      this.farmList = dataFilter
+      dataFilter=[]
+    }
+
     this.totalData = this.farmList.length
     this.setDataForShow(0)
   }
@@ -82,7 +91,7 @@ export class SearchComponent implements OnInit {
 
   listFarm() {
     this.http
-      .get('http://localhost:5500/api/farm')
+      .get('http://psu-farm-server.herokuapp.com/api/farm')
       .toPromise()
       .then((res) => {
         if (res) {

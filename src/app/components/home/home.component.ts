@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   listFarm() {
     this.http
-      .get('http://localhost:5500/api/farm')
+      .get('http://psu-farm-server.herokuapp.com/api/farm')
       .toPromise()
       .then((res) => {
         if (res) {
